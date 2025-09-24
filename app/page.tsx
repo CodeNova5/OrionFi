@@ -6,10 +6,7 @@ export default function HomePage() {
   return (
     <main>
       <h1>🚀 OrionFi</h1>
-      <appkit-button></appkit-button>
-      <appkit-connect-button></appkit-connect-button>
-      <appkit-network-button></appkit-network-button>
-      <appkit-account-button></appkit-account-button>
+      <w3m-button />
     </main>
   );
 }
