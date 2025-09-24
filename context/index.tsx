@@ -16,10 +16,10 @@ if (!projectId) {
 
 // Set up metadata
 const metadata = {
-  name: 'appkit-example',
-  description: 'AppKit Example',
-  url: 'https://appkitexampleapp.com', // origin must match your domain & subdomain
-  icons: ['https://avatars.githubusercontent.com/u/179229932']
+  name: 'OrionFi',
+  description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
+  url: 'https://orion-fi-theta.vercel.app', // origin must match your domain & subdomain
+  icons: ['https://orion-fi-theta.vercel.app/favicon.ico']
 }
 
 // Create the modal
