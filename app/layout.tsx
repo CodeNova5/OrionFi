@@ -1,26 +1,24 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-import { headers } from 'next/headers' // added
-const headersObj = await headers();
-import ContextProvider from '@/context'
+import { headers } from "next/headers"; // added
+import ContextProvider from "@/context";
 
 export const metadata: Metadata = {
-  title: 'AppKit Example App',
-  description: 'Powered by Reown'
-}
+  title: "AppKit Example App",
+  description: "Powered by Reown",
+};
 
-export default function RootLayout({
-  children
+export default async function RootLayout({
+  children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
-
-
-  const cookies = headersObj.get('cookie')
+  const headersObj = await headers();
+  const cookies = headersObj.get("cookie");
 
   return (
     <html lang="en">
@@ -28,5 +26,5 @@ export default function RootLayout({
         <ContextProvider cookies={cookies}>{children}</ContextProvider>
       </body>
     </html>
-  )
+  );
 }
