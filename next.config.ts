@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
   webpack: (config) => {
+
     // Prevent Node/RN-only modules from breaking the build
     config.resolve.fallback = {
       ...config.resolve.fallback,
