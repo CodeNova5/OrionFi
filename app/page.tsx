@@ -6,6 +6,7 @@ import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { networks, projectId } from "../config"; // define your networks + projectId
 import "@reown/appkit-scaffold-ui";
 import { useAccount } from "wagmi";
+import { mainnet, arbitrum } from '@reown/appkit/networks'
 
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
@@ -14,7 +15,7 @@ function initAppKit() {
     const wagmiAdapter = new WagmiAdapter({ networks, projectId });
     appKit = createAppKit({
       adapters: [wagmiAdapter],
-      networks,
+      networks: [mainnet, arbitrum],
       projectId,
       metadata: {
         name: 'OrionFi',
