@@ -8,8 +8,8 @@ import { headers } from "next/headers"; // added
 import ContextProvider from "@/context";
 
 export const metadata: Metadata = {
-  title: "AppKit Example App",
-  description: "Powered by Reown",
+  title: "OrionFi",
+  description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
 };
 
 export default async function RootLayout({
