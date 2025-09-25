@@ -7,7 +7,7 @@ import { networks, projectId } from "../config"; // define your networks + proje
 import "@reown/appkit-scaffold-ui";
 import { useAccount } from "wagmi";
 import { mainnet, arbitrum } from '@reown/appkit/networks'
-
+import BalanceDashboard from "../components/BalanceDashboard";
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
 function initAppKit() {
@@ -35,13 +35,16 @@ export default function HomePage() {
     initAppKit();
     setInitialized(true);
   }, []);
-  
+
   const openSwap = () => {
     appKit?.open({ view: "Swap", arguments: { /* optional prefills */ } });
   };
   const openSend = () => appKit?.open({ view: "WalletSend" });
   const openAccount = () => appKit?.open({ view: "Account" });
   const openConnect = () => appKit?.open({ view: "Connect" });
+  const openBuyCrypto = () => appKit?.open({ view: "OnRampProviders" });
+  const openAllWallets = () => appKit?.open({ view: "AllWallets" });
+  const openNetworks = () => appKit?.open({ view: "Networks" });
 
   return (
     <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
@@ -54,49 +57,47 @@ export default function HomePage() {
             Connected as:{" "}
             <strong className="text-blue-400">{address}</strong>
           </p>
-
+          <BalanceDashboard />
           {/* Action Panel */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            <div
-              onClick={openSwap}
-              className="p-6 bg-gray-800 rounded-2xl shadow-lg flex flex-col items-center space-y-3 hover:scale-105 transition cursor-pointer"
-            >
-              <div className="px-4 py-2 rounded-lg bg-green-600 text-white">
-                🔄 Swap
-              </div>
-              <span className="text-sm text-gray-300">Swap Tokens</span>
-            </div>
+          <div className="space-y-10">
 
-            <div
-              onClick={openSend}
-              className="p-6 bg-gray-800 rounded-2xl shadow-lg flex flex-col items-center space-y-3 hover:scale-105 transition cursor-pointer"
-            >
-              <div className="px-4 py-2 rounded-lg bg-purple-600 text-white">
-                📤 Send
+            {/* Assets Section */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">💎 Assets</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {/* Swap */}
+                <div onClick={openSwap} className="action-card bg-green-600">🔄 Swap</div>
+                {/* Send */}
+                <div onClick={openSend} className="action-card bg-purple-600">📤 Send</div>
+                {/* Buy */}
+                <div onClick={openBuyCrypto} className="action-card bg-yellow-600">💰 Buy</div>
               </div>
-              <span className="text-sm text-gray-300">Send Assets</span>
-            </div>
+            </section>
 
-            <div
-              onClick={openAccount}
-              className="p-6 bg-gray-800 rounded-2xl shadow-lg flex flex-col items-center space-y-3 hover:scale-105 transition cursor-pointer"
-            >
-              <div className="px-4 py-2 rounded-lg bg-blue-600 text-white">
-                👤 Account
+            {/* Wallet Section */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">👛 Wallet</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {/* Account */}
+                <div onClick={openAccount} className="action-card bg-blue-600">👤 Account</div>
+                {/* Wallets */}
+                <div onClick={openAllWallets} className="action-card bg-red-600">👛 Wallets</div>
+                {/* Connect */}
+                <div onClick={openConnect} className="action-card bg-pink-600">🔗 Connect</div>
               </div>
-              <span className="text-sm text-gray-300">View Account</span>
-            </div>
+            </section>
 
-            <div
-              onClick={openConnect}
-              className="p-6 bg-gray-800 rounded-2xl shadow-lg flex flex-col items-center space-y-3 hover:scale-105 transition cursor-pointer"
-            >
-              <div className="px-4 py-2 rounded-lg bg-pink-600 text-white">
-                🔗 Connect
+            {/* Network Section */}
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">🌐 Network</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {/* Networks */}
+                <div onClick={openNetworks} className="action-card bg-teal-600">🌐 Networks</div>
               </div>
-              <span className="text-sm text-gray-300">Switch Wallet</span>
-            </div>
+            </section>
+
           </div>
+
         </div>
       )}
     </main>
