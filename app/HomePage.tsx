@@ -21,13 +21,6 @@ function initAppKit() {
       adapters: [wagmiAdapter],
       networks: [mainnet, arbitrum],
       projectId,
-      features: {
-        swaps: true,
-        onramp: true,
-        history: true,
-        analytics: true,
-        allWallets: true, // makes sure all wallets (browser + WC) show
-      },
       metadata: {
         name: 'OrionFi',
         description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
