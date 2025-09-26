@@ -2,35 +2,11 @@
 
 import { useEffect } from "react";
 import { createAppKit } from "@reown/appkit";
-import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
-import { networks, projectId } from "../config"; // define your networks + projectId
 import "@reown/appkit-scaffold-ui";
-import { mainnet, arbitrum } from '@reown/appkit/networks'
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
-function initAppKit() {
-    if (!appKit && typeof window !== "undefined") {
-        const wagmiAdapter = new WagmiAdapter({ networks, projectId });
-        appKit = createAppKit({
-            adapters: [wagmiAdapter],
-            networks: [mainnet, arbitrum],
-            projectId,
-            metadata: {
-                name: 'OrionFi',
-                description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
-                url: 'https://orion-fi-theta.vercel.app', // origin must match your domain & subdomain
-                icons: ['https://orion-fi-theta.vercel.app/favicon.ico']
-            },
-        });
-    }
-}
 
 export default function ActionPanel() {
-    useEffect(() => {
-        initAppKit();
-
-    }, []);
-
     const openSwap = () => {
         appKit?.open({ view: "Swap", arguments: { /* optional prefills */ } });
     };
