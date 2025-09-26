@@ -53,6 +53,7 @@ export default function HomePage() {
       <Header />
       <h1 className="text-4xl text-center font-bold mb-6 mt-20">🚀 OrionFi</h1>
       <w3m-button />
+      <appkit-button />
 
       {initialized && isConnected && (
         <div className="mt-10">
