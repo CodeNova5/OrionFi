@@ -21,13 +21,6 @@ function initAppKit() {
       adapters: [wagmiAdapter],
       networks: [mainnet, arbitrum],
       projectId,
-      features: {
-        swaps: true,
-        onramp: true,
-        history: true,
-        analytics: true,
-        allWallets: true, // makes sure all wallets (browser + WC) show
-      },
       metadata: {
         name: 'OrionFi',
         description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
@@ -53,7 +46,6 @@ export default function HomePage() {
       <Header />
       <h1 className="text-4xl text-center font-bold mb-6 mt-20">🚀 OrionFi</h1>
       <w3m-button />
-      <appkit-button />
 
       {initialized && isConnected && (
         <div className="mt-10">
