@@ -7,6 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 import { headers } from "next/headers"; // added
 import ContextProvider from "@/context";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "OrionFi",
@@ -53,12 +55,16 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white`}>
+        
         <ContextProvider cookies={cookies}>
+          <Header />
           <main className="min-h-screen max-w-full overflow-x-hidden">
             {children}
           </main>
         </ContextProvider>
+        <Footer />
       </body>
+
     </html>
 
   );
