@@ -50,7 +50,7 @@ export default function ActionPanel() {
 
     return (
         <div className="space-y-10">
-            <h2 className="text-2xl font-bold mb-4">⚡ Quick Actions</h2>
+            <h2 className="text-2xl text-center font-bold mb-4">⚡ Quick Actions</h2>
             {/* Action Panel */}
 
             {/* Assets Section */}

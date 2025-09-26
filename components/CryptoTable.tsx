@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function CryptoTable() {
   type Coin = {
@@ -91,13 +90,7 @@ export default function CryptoTable() {
             >
               <td className="px-4 py-2">{(page - 1) * 100 + idx + 1}</td>
               <td className="px-4 py-2 flex items-center space-x-2">
-                <Image
-                  src={coin.image}
-                  alt={coin.name}
-                  width={24}
-                  height={24}
-                  className="rounded-full"
-                />
+                <img src={coin.image} alt={coin.name} className="w-6 h-6" />
                 <span>{coin.name}</span>
                 <span className="text-gray-400 uppercase text-xs">
                   ({coin.symbol})
