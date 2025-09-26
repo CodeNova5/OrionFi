@@ -29,16 +29,14 @@ const modal = createAppKit({
   networks: [mainnet, arbitrum],
   defaultNetwork: mainnet,
   metadata: metadata,
-  features: {
-    analytics: true // Optional - defaults to your Cloud configuration
-  }
+  
 })
 
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen>
       
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
