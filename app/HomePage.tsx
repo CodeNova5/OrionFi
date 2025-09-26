@@ -42,27 +42,36 @@ export default function HomePage() {
 
   return (
 
-    <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      <Header />
-      <h1 className="text-4xl text-center font-bold mb-6 mt-20">🚀 OrionFi</h1>
-      <w3m-button />
+    <main className="p-4 sm:p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+  <Header />
 
-      {initialized && isConnected && (
-        <div className="mt-10">
-          <p className="text-lg mb-6">
-            Connected as:{" "}
-            <strong className="text-blue-400">{address}</strong>
-          </p>
-          <BalanceDashboard />
-          <ActionPanel />
-          <div className="mt-16">
-            <CryptoTable />
-          </div>
-          <div className="mt-16">
-            <Footer />
-          </div>
-        </div>
-      )}
-    </main>
+  <h1 className="text-2xl sm:text-4xl text-center font-bold mb-4 sm:mb-6 mt-10 sm:mt-20">
+    🚀 OrionFi
+  </h1>
+
+  <div className="flex justify-center mb-6">
+    <w3m-button />
+  </div>
+
+  {initialized && isConnected && (
+    <div className="mt-6 sm:mt-10">
+      <p className="text-base sm:text-lg mb-4 sm:mb-6 text-center sm:text-left">
+        Connected as:{" "}
+        <strong className="text-blue-400 break-words">{address}</strong>
+      </p>
+
+      <BalanceDashboard />
+      <ActionPanel />
+
+      <div className="mt-10 sm:mt-16">
+        <CryptoTable />
+      </div>
+
+      <div className="mt-10 sm:mt-16">
+        <Footer />
+      </div>
+    </div>
+  )}
+</main>
   );
 }
