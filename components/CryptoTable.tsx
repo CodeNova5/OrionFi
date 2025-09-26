@@ -1,10 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function CryptoTable() {
-  const [coins, setCoins] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+ type Coin = {
+  id: string;
+  name: string;
+  symbol: string;
+  image: string;
+  current_price: number;
+  price_change_percentage_24h: number;
+  price_change_percentage_7d_in_currency: number;
+  price_change_percentage_30d_in_currency: number;
+  market_cap: number;
+};
+
+const [coins, setCoins] = useState<Coin[]>([]); const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
   const fetchCoins = async (pageNum: number) => {
@@ -79,11 +91,13 @@ export default function CryptoTable() {
             >
               <td className="px-4 py-2">{(page - 1) * 100 + idx + 1}</td>
               <td className="px-4 py-2 flex items-center space-x-2">
-                <img
-                  src={coin.image}
-                  alt={coin.name}
-                  className="w-6 h-6 rounded-full"
-                />
+               <Image
+  src={coin.image}
+  alt={coin.name}
+  width={24}
+  height={24}
+  className="rounded-full"
+/>
                 <span>{coin.name}</span>
                 <span className="text-gray-400 uppercase text-xs">
                   ({coin.symbol})
