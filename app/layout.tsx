@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
   openGraph: {
     title: "OrionFi",
-    description: "Stake, lend, and swap tokens across chains with ease.",
+    description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
     url: "https://orion-fi-theta.vercel.app",
     siteName: "OrionFi",
     images: [
