@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "OrionFi",
     images: [
       {
-        url: "https://orion-fi-theta.vercel.app/og-image.jpg",
+        url: "https://orion-fi-theta.vercel.app/orionfi-logo.jpg",
         width: 1200,
         height: 630,
         alt: "OrionFi Platform",
