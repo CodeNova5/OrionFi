@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { createAppKit } from "@reown/appkit";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
 import { networks, projectId } from "../config"; // define your networks + projectId
@@ -15,6 +15,13 @@ function initAppKit() {
             adapters: [wagmiAdapter],
             networks: [mainnet, arbitrum],
             projectId,
+            features: {
+                swaps: true,
+                onramp: true,
+                history: true,
+                analytics: true,
+                allWallets: true, // makes sure all wallets (browser + WC) show
+            },
             metadata: {
                 name: 'OrionFi',
                 description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
