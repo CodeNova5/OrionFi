@@ -29,19 +29,17 @@ const modal = createAppKit({
   networks: [mainnet, arbitrum],
   defaultNetwork: mainnet,
   metadata: metadata,
-  
-})
 
+})
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
-    <div className="w-screen overflow-x-hidden">
-      
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        {children}
+      </QueryClientProvider>
     </WagmiProvider>
-</div>
   )
 }
 

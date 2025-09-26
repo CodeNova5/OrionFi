@@ -42,7 +42,7 @@ export default function HomePage() {
 
   return (
 
-    <main className="w-full p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <div className="w-full p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       <Header />
       <h1 className="text-4xl text-center font-bold mb-6 mt-20">🚀 OrionFi</h1>
       <w3m-button />
@@ -63,6 +63,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }
