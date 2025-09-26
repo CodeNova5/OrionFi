@@ -34,7 +34,14 @@ export const metadata: Metadata = {
     images: ["https://orion-fi-theta.vercel.app/og-image.jpg"],
     creator: "Code Nova",
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
+
 export default async function RootLayout({
   children,
 }: Readonly<{
