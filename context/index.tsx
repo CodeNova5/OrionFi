@@ -36,7 +36,7 @@ function ContextProvider({ children, cookies }: { children: ReactNode; cookies: 
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
-    <div className="w-screen">
+    <div className="w-screen overflow-x-hidden">
       
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
