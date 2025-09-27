@@ -9,6 +9,7 @@ import { useAccount } from "wagmi";
 import { mainnet, arbitrum } from '@reown/appkit/networks'
 import BalanceDashboard from "../components/BalanceDashboard";
 import CryptoTable from "@/components/CryptoTable";
+import Header from "@/components/Header";
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
 function initAppKit() {
@@ -49,7 +50,7 @@ export default function HomePage() {
 
   return (
     <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-      <h1 className="text-4xl font-bold mb-6">🚀 OrionFi</h1>
+      <h1 className="text-4xl text-center font-bold mb-6">🚀 OrionFi</h1>
       <w3m-button />
 
       {initialized && isConnected && (
