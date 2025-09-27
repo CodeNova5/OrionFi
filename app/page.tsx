@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,7 +9,8 @@ import "@reown/appkit-scaffold-ui";
 import { useAccount } from "wagmi";
 import { mainnet, arbitrum } from '@reown/appkit/networks'
 import BalanceDashboard from "../components/BalanceDashboard";
-import CryptoTable from "@/components/CryptoTable";
+import CryptoTable from "../components/CryptoTable";
+
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
 function initAppKit() {
@@ -59,7 +61,8 @@ export default function HomePage() {
             <strong className="text-blue-400">{address}</strong>
           </p>
           <BalanceDashboard />
-          {/* Action Panel */}
+         
+
           <div className="space-y-10">
 
             {/* Assets Section */}
@@ -98,6 +101,7 @@ export default function HomePage() {
             </section>
 
           </div>
+
           <div className="mt-16">
             <CryptoTable />
           </div>
