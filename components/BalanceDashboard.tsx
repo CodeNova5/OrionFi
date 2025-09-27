@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 
 export default function BalanceDashboard() {
   const { address, isConnected } = useAccount();
-
   const { data: balance } = useBalance({
     address,
-    chainId: 1,
+    chainId: 1, // ETH Mainnet
     query: {
       refetchInterval: 10000, // refresh every 10s
     },

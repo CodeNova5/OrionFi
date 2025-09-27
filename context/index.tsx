@@ -29,16 +29,17 @@ const modal = createAppKit({
   networks: [mainnet, arbitrum],
   defaultNetwork: mainnet,
   metadata: metadata,
-
+  features: {
+    analytics: true // Optional - defaults to your Cloud configuration
+  }
 })
+
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
   const initialState = cookieToInitialState(wagmiAdapter.wagmiConfig as Config, cookies)
 
   return (
     <WagmiProvider config={wagmiAdapter.wagmiConfig as Config} initialState={initialState}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </WagmiProvider>
   )
 }
