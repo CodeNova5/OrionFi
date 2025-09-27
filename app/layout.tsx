@@ -54,9 +54,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
         <ContextProvider cookies={cookies}>{children}</ContextProvider>
-      <Footer />
       </body>
     </html>
   );
