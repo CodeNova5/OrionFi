@@ -5,9 +5,9 @@ import { Mail, Phone, MessageCircle } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="text-white py-10 mt-16">
-      <hr style={{borderColor: 'gray'}} />
+      <hr style={{ borderColor: 'gray' }} />
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        
+
         {/* Brand / About */}
         <div>
           <h2 className="text-2xl font-bold mb-3">OrionFi</h2>
@@ -44,11 +44,17 @@ export default function Footer() {
           <ul className="space-y-3 text-gray-400">
             <li className="flex items-center gap-2">
               <Phone size={18} className="text-white" />
-              <span>+234 907 208 9091</span>
+              <span>
+                <a href="tel:+2349072089091" className="hover:text-blue transition text-decoration-none">
+                   <span>+234 907 208 9091</span>
+                </a>
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={18} className="text-white" />
-              <span>codenova02@gmail.com</span>
+              <a href="mailto:codenova02@gmail.com" className="hover:text-blue transition text-decoration-none">
+                <span>codenova02@gmail.com</span>
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <MessageCircle size={18} className="text-white" />
@@ -67,7 +73,7 @@ export default function Footer() {
 
       {/* Bottom Note */}
       <div className="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Tunebay. All rights reserved.
+        © {new Date().getFullYear()} OrionFi. All rights reserved.
       </div>
     </footer>
   );

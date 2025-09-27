@@ -50,18 +50,17 @@ export default function HomePage() {
   const openNetworks = () => appKit?.open({ view: "Networks" });
 
   return (
-   
-   <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+
+    <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       <Header />
-      <h1 className="text-4xl text-center font-bold mb-6">🚀 OrionFi</h1>
-      <w3m-button />
+      <h1 className="text-4xl text-center font-bold mb-6 mt-40">🚀 OrionFi</h1>
+      <div className="w-full flex justify-center sm:justify-end">
+        <w3m-button />
+      </div>
+
 
       {initialized && isConnected && (
         <div className="mt-10">
-          <p className="text-lg mb-6">
-            Connected as:{" "}
-            <strong className="text-blue-400">{address}</strong>
-          </p>
           <BalanceDashboard />
           {/* Action Panel */}
           <div className="space-y-10">
