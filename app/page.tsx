@@ -18,8 +18,14 @@ function initAppKit() {
     const wagmiAdapter = new WagmiAdapter({ networks, projectId });
     appKit = createAppKit({
       adapters: [wagmiAdapter],
-      networks: [mainnet, arbitrum],
       projectId,
+      networks: [mainnet, arbitrum],
+      features: {
+        allWallets: true, // ✅ ensures registry is used
+        analytics: true,
+        swaps: true,
+        onramp: true,
+      },
       metadata: {
         name: 'OrionFi',
         description: 'A next-gen DeFi platform for staking, lending, and cross-chain token swaps.',
