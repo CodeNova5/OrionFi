@@ -10,6 +10,7 @@ import { mainnet, arbitrum } from '@reown/appkit/networks'
 import BalanceDashboard from "../components/BalanceDashboard";
 import CryptoTable from "@/components/CryptoTable";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 let appKit: ReturnType<typeof createAppKit> | undefined;
 
 function initAppKit() {
@@ -49,7 +50,9 @@ export default function HomePage() {
   const openNetworks = () => appKit?.open({ view: "Networks" });
 
   return (
-    <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+   
+   <main className="p-8 min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+      <Header />
       <h1 className="text-4xl text-center font-bold mb-6">🚀 OrionFi</h1>
       <w3m-button />
 
@@ -105,6 +108,7 @@ export default function HomePage() {
 
         </div>
       )}
+      <Footer />
     </main>
   );
 }

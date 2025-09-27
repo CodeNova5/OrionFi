@@ -36,25 +36,29 @@ export default function BalanceDashboard() {
   const usdBalance = usdPrice ? (ethBalance * usdPrice).toFixed(2) : null;
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gray-800 p-6 rounded-2xl shadow-lg text-white">
-      <h2 className="text-2xl font-bold mb-4">💰 Balance</h2>
+    <div className="w-full max-w-sm sm:max-w-md mx-auto bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-lg text-white">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4">💰 Balance</h2>
 
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-gray-300">Address:</span>
-        <span className="font-mono text-blue-400 truncate max-w-[150px]">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1">
+        <span className="text-gray-300 text-sm sm:text-base">Address:</span>
+        <span className="font-mono text-blue-400 truncate max-w-[200px] sm:max-w-[250px] text-xs sm:text-sm">
           {address}
         </span>
       </div>
 
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-gray-300">ETH Balance:</span>
-        <span className="font-semibold">{ethBalance.toFixed(4)} ETH</span>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2 gap-1">
+        <span className="text-gray-300 text-sm sm:text-base">ETH Balance:</span>
+        <span className="font-semibold text-sm sm:text-base">
+          {ethBalance.toFixed(4)} ETH
+        </span>
       </div>
 
       {usdBalance && (
-        <div className="flex justify-between items-center">
-          <span className="text-gray-300">≈ USD Value:</span>
-          <span className="font-semibold">${usdBalance}</span>
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+          <span className="text-gray-300 text-sm sm:text-base">≈ USD Value:</span>
+          <span className="font-semibold text-sm sm:text-base">
+            ${usdBalance}
+          </span>
         </div>
       )}
     </div>
