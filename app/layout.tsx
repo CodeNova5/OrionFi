@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 import { headers } from "next/headers"; // added
@@ -10,6 +11,36 @@ import ContextProvider from "@/context";
 export const metadata: Metadata = {
   title: "OrionFi",
   description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
+  openGraph: {
+    title: "OrionFi",
+    description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
+    url: "https://orion-fi-theta.vercel.app",
+    siteName: "OrionFi",
+    images: [
+      {
+        url: "https://orion-fi-theta.vercel.app/orionfi-logo.jpg",
+        width: 1000,
+        height: 630,
+        alt: "OrionFi Platform",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OrionFi",
+    description: "A next-gen DeFi platform for staking, lending, and cross-chain token swaps.",
+    images: ["https://orion-fi-theta.vercel.app/orionfi-logo.jpg"],
+    creator: "Code Nova",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default async function RootLayout({
@@ -23,7 +54,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Header />
         <ContextProvider cookies={cookies}>{children}</ContextProvider>
+      <Footer />
       </body>
     </html>
   );
